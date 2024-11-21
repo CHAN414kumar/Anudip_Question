@@ -1,0 +1,38 @@
+package javabean;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class RemoveDuplicate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int arr[]= {2,3,6,2,4,9,6};
+		Arrays.sort(arr);
+		
+		List<Integer> list=new ArrayList<>(); //To store the non duplicate elements
+		for(int i=0;i<arr.length-1;i++) {
+			if(arr[i]==arr[i+1]) {
+				while(arr[i]==arr[i+1]) {
+					i++;
+				}
+			}else {
+				list.add(arr[i]);
+			}
+		}
+		if(arr[arr.length-1]!=arr[arr.length-2]) {
+			list.add(arr[arr.length-1]);
+		}
+		arr=new int[list.size()];
+		for(int i=0;i<list.size();i++) {
+			arr[i]=list.get(i);
+		}
+		
+		for(int i=0;i<arr.length;i++) {
+			System.out.print(arr[i]+" ");
+		}
+
+	}
+
+}
